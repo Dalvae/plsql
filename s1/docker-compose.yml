@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  oracle-db-s1:
+    image: container-registry.oracle.com/database/express:latest
+    container_name: oracle-db-s1
+    ports:
+      - "1524:1521"
+    environment:
+      - ORACLE_PWD=oracle
+    volumes:
+      - ./scripts:/scripts
+      - oracle_s1_data:/opt/oracle/oradata
+
+volumes:
+  oracle_s1_data:
